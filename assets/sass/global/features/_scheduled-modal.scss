@@ -1,0 +1,43 @@
+#modal-scheduled {
+    .modal-dialog{
+        min-width: 700px;
+    }
+}
+.scheduled {
+    table{
+        width: 100%;
+        color: #595d6e;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 10px;
+    }
+    th:nth-child(1), th:nth-child(3) {
+        text-align: center
+    }
+    th:nth-child(4), td:nth-child(4) {
+        min-width: 250px;
+    }
+    td:nth-child(1), td:nth-child(3) {
+        text-align: center
+    }
+    table, td, th { 
+        border: 1px solid #ddd;
+    }   
+    a {
+        color: #595d6e;
+    } 
+    .edit-date-time{
+        display: flex;
+        a {
+            margin-top: 5px;
+            margin-left: 3px;
+        }
+        a .fa.fa-times{
+            color: #fd397a;
+        }
+    }
+    .invalid-scheduled{
+        color: #fd397a;
+    }
+}

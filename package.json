@@ -1,6 +1,8 @@
 {
-  "name": "cms",
+  "name": "CMS",
   "version": "1.0.0",
+  "description": "English For School CMS",
+  "author": "hdlegend",
   "private": true,
   "scripts": {
     "dev": "nuxt",
@@ -62,8 +64,6 @@
     "vuedraggable": "^2.23.2"
   },
   "devDependencies": {
-    "@nuxt/types": "^2.14.10",
-    "@nuxt/typescript-build": "^2.0.3",
     "@nuxtjs/eslint-config": "^1.0.1",
     "@nuxtjs/eslint-module": "^1.0.0",
     "babel-eslint": "^10.0.1",

@@ -1,0 +1,13 @@
+.badge-table-wrap{
+  position: relative;
+  .badge{
+    position: absolute;
+    right: 0;
+    top: -5px;
+    padding: 3px 7px;
+  }
+}
+
+.selected-count {
+  padding: 10px
+}

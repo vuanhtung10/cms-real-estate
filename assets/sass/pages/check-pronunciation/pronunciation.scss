@@ -1,0 +1,24 @@
+.kt-container {
+  .audio-control {
+    width: 100%;
+  }
+  .box {
+    border: 1px solid black;
+    padding: 8px;
+  }
+}
+.comment-pronunciation-form {
+  .audio-control {
+    width: calc(100% - 150px);
+  }
+  .timeline {
+    width: 90px;
+    margin-left: 10px;
+  }
+  .conversation-item {
+    margin-top: 12px;
+    .message {
+      width: calc(100% - 340px);
+    }
+  }
+}

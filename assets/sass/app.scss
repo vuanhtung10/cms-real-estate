@@ -1,0 +1,47 @@
+// Theme Styles
+@import '../plugins/flaticon/flaticon.css';
+@import '../plugins/flaticon2/flaticon';
+@import url('https://fonts.googleapis.com/css?family=Muli:400,600,700');
+@import 'CSS:~vue-draggable-resizable/dist/VueDraggableResizable';
+@import 'style.nuxt';
+
+// Default Layout Skins
+@import './global/layout/header/skins/base/light.scss';
+@import './global/layout/header/skins/menu/light.scss';
+@import './global/layout/brand/skins/dark.scss';
+@import './global/layout/aside/skins/dark.scss';
+
+// Header Skins
+.kt-header-base-light {
+  @import './global/layout/header/skins/base/light.scss';
+}
+
+.kt-header-base-dark {
+  @import './global/layout/header/skins/base/dark.scss';
+}
+
+// Header Menu Skins
+.kt-header-menu-light {
+  @import './global/layout/header/skins/menu/light.scss';
+}
+.kt-header-menu-dark {
+  @import './global/layout/header/skins/menu/dark.scss';
+}
+
+// Brand Skins
+.kt-brand-dark {
+  @import './global/layout/brand/skins/dark.scss';
+}
+
+.kt-brand-light {
+  @import './global/layout/brand/skins/light.scss';
+}
+
+// Aside skins
+.kt-aside-dark {
+  @import './global/layout/aside/skins/dark.scss';
+}
+
+.kt-aside-light {
+  @import './global/layout/aside/skins/light.scss';
+}

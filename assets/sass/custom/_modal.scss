@@ -1,0 +1,25 @@
+@media (min-width: 1200px){
+  .modal-xl {
+    max-width: 1140px;
+  }
+}
+.no-results{
+  font-style: italic;
+}
+.review-title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .btn-sm{
+    padding: 0.2rem 1rem;
+  }
+}
+.issue-text{
+  font-style: italic;
+}
+.sentence-management{
+  .ql-editor{
+    min-height: 68px;
+  }
+}
+

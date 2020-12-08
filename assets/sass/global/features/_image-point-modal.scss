@@ -1,0 +1,23 @@
+.image-point {
+    .point{
+        width: 8px;
+        height: 8px;
+        position: absolute;
+        border-radius: 50%;
+        border: 1.5px solid white;
+    }
+    .img_preview {
+        width: fit-content; 
+        position: relative;
+        margin-top: 10px;
+        .image{
+            max-width: 100%;
+        }
+    }
+    .btn_color { 
+        margin-top: 10px;
+    }
+    .active {
+        background-color: #2df38e;
+    }
+}

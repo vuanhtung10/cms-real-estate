@@ -1,0 +1,11 @@
+@import './vendors/perfect-scroll';
+@import './vendors/datatables';
+@import './vendors/vue-simple-suggest';
+@import './vendors/element-ui';
+
+$la-font-path: '~line-awesome/fonts' !default;
+$la-css-prefix: la !default;
+@import '~line-awesome/src/line-awesome';
+
+$fa-font-path: '~font-awesome/fonts' !default;
+@import '~font-awesome/scss/font-awesome';

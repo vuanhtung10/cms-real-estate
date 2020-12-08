@@ -1,0 +1,19 @@
+//
+// Popover
+//
+
+// Base
+.popover {
+  box-shadow: $popover-box-shadow;
+
+  .popover-header {
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-bottom: 1px solid kt-base-color(grey, 2);
+  }
+}
+
+.mark-popover {
+  max-width: 350px;
+  width: 350px;
+}

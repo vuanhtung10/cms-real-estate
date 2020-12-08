@@ -1,0 +1,11 @@
+@import '~vue2-perfect-scrollbar/dist/vue2-perfect-scrollbar.min';
+
+.ps__rail-y {
+  width: 6px !important;
+}
+.ps__rail-y.ps--clicking .ps__thumb-y,
+.ps__rail-y:focus > .ps__thumb-y,
+.ps__rail-y:hover > .ps__thumb-y {
+  background-color: #aaa;
+  width: 6px;
+}

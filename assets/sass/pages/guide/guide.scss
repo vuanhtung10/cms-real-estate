@@ -1,0 +1,35 @@
+.guide {
+  .wrap {
+    //display: flex;
+    //flex-direction: column;
+    //align-items: center;
+    background-color: white;
+    border: 1px solid #ebedf2;
+    border-radius: 4px;
+    padding: 25px;
+
+    .text-normal {
+      //width: 80%;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      font-size: 14px;
+
+      .content-detail {
+        //margin-top: 5px;
+      }
+
+      .list-detail {
+        margin-top: 0px !important;
+        margin-bottom: 0px !important;
+      }
+    }
+    .iframe-guide{
+      text-align: center;
+      margin-top: 25px;
+      margin-bottom: 10px;
+    }
+    .iframe-guide-title{
+      margin-top: 8px;
+    }
+  }
+}

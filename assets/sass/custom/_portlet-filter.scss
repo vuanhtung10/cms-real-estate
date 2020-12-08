@@ -1,0 +1,11 @@
+.portlet-filter {
+  .form-group {
+    margin-bottom: 0;
+  }
+  &__action {
+    margin-top: 15px;
+    button {
+      width: 150px;
+    }
+  }
+}
