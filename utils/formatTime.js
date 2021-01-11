@@ -1,10 +1,6 @@
 import moment from 'moment'
 
 export const formatTimeNormal = (time) => {
-  console.log(
-    'moment',
-    moment(time, 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD HH:mm:ss')
-  )
   return moment(time, 'YYYY-MM-DD HH:mm:ss').format('DD/MM/YYYY')
 }
 

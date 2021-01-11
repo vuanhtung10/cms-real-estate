@@ -54,7 +54,12 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['bootstrap-vue/nuxt', '@nuxtjs/axios', '@nuxtjs/auth', 'nuxt-i18n'],
+  modules: [
+    'bootstrap-vue/nuxt',
+    '@nuxtjs/axios',
+    '@nuxtjs/auth-next',
+    'nuxt-i18n'
+  ],
   bootstrapVue: {
     bootstrapCSS: false,
     bootstrapVueCSS: false
@@ -91,9 +96,9 @@ export default {
     // Options
     redirect: {
       login: '/auth/login',
-      logout: '/auth/login',
-      callback: false,
-      home: '/'
+      logout: '/',
+      home: '/',
+      callback: false
     },
     strategies: {
       local: {
@@ -114,15 +119,15 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: 'https://api.tienganhphothong.vn'
-    // baseURL: 'http://localhost:3000'
+    // baseURL: 'https://api.tienganhphothong.vn'
+    baseURL: 'http://localhost:8080'
   },
   /*
    ** Build configuration
    */
-  // router: {
-  //   middleware: ['page', 'check-permission']
-  // },
+  router: {
+    middleware: ['page', 'check-permission']
+  },
   build: {
     vendor: ['jquery'],
     plugins: [

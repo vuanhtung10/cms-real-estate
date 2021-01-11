@@ -365,7 +365,7 @@ export default {
           ajax: {
             url: $this.$axios.defaults.baseURL + this.url,
             headers: {
-              Authorization: `${this.$auth.getToken('local')}`
+              Authorization: `${this.$auth.strategy.token.get()}`
             },
             type: 'post',
             dataType: 'json',

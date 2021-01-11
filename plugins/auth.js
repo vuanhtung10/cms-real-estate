@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export default function({ $auth, app, $axios }, inject) {
   axios.interceptors.request.use((request) => {
-    const token = $auth.getToken('local')
+    const token = $auth.strategy.token.get()
     if (token) {
       request.headers.common.Authorization = `${token}`
     }

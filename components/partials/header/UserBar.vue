@@ -9,7 +9,7 @@
       <div class="kt-header__topbar-user">
         <span class="kt-header__topbar-welcome kt-hidden-mobile">Hi,</span>
         <span class="kt-header__topbar-username kt-hidden-mobile">{{
-          $auth.user.email
+          $auth.user ? $auth.user.email : ''
         }}</span>
         <img
           class="kt-hidden"
@@ -45,7 +45,7 @@
           >
         </div>
         <div class="kt-user-card__name">
-          {{ $auth.user.display_name }}
+          {{ $auth.user ? $auth.user.display_name : '' }}
         </div>
         <div class="kt-user-card__badge">
           <span class="btn btn-success btn-sm btn-bold btn-font-md"
@@ -80,8 +80,6 @@
           >
         </div>
       </div>
-
-      <!--end: Navigation -->
     </template>
   </b-dropdown>
 </template>
@@ -98,7 +96,7 @@ export default {
   methods: {
     async logout() {
       await this.$auth.logout()
-      this.$router.push('/auth/login')
+      // this.$router.push('/auth/login')
     }
   }
 }

@@ -6,9 +6,7 @@ export default function({ $axios, redirect }) {
   })
 
   $axios.onError((error) => {
-    console.log(error)
     const code = parseInt(error.response && error.response.status)
-    console.log(code)
     if (code === 400) {
       redirect('/auth/login')
     }

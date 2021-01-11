@@ -4,6 +4,7 @@
 <script>
 export default {
   name: 'Index',
+  auth: false,
   head() {
     return {
       title: this.$t('menu.dashboard')
@@ -16,6 +17,9 @@ export default {
     return {
       image: null
     }
+  },
+  mounted() {
+    console.log(this.$auth.strategy.token.get())
   }
 }
 </script>

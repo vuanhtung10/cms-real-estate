@@ -127,8 +127,8 @@ export default {
   },
   data() {
     return {
-      username: '',
-      password: '',
+      username: 'leanhtu5991@gmail.com',
+      password: '12345678',
       isLoading: false,
       error: null
     }
@@ -141,13 +141,12 @@ export default {
       try {
         this.isLoading = true
 
-        await this.$auth.login({
+        await this.$auth.loginWith('local', {
           data: {
             email: this.username,
             password: this.password
           }
         })
-
         this.isLoading = false
 
         this.$router.push('/')
