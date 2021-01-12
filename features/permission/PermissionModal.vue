@@ -123,11 +123,16 @@ export default {
         this.onActionSuccess()
       } catch (e) {
         if (e.response) {
-          if (status !== 422) {
+          if (e.response.status === 422) {
+            e.response.data.errors.forEach((element) => {
+              const err = this.$t('validate.' + element.msg, {
+                field: this.$t('permission.' + element.param)
+              })
+              this.vForm.errors.set(element.param, err)
+            })
+          } else {
             notifyTryAgain()
           }
-        } else {
-          notifyTryAgain()
         }
       }
     },
@@ -141,11 +146,16 @@ export default {
         this.onActionSuccess()
       } catch (e) {
         if (e.response) {
-          if (status !== 422) {
+          if (e.response.status === 422) {
+            e.response.data.errors.forEach((element) => {
+              const err = this.$t('validate.' + element.msg, {
+                field: this.$t('permission.' + element.param)
+              })
+              this.vForm.errors.set(element.param, err)
+            })
+          } else {
             notifyTryAgain()
           }
-        } else {
-          notifyTryAgain()
         }
       }
     }

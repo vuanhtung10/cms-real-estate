@@ -11,7 +11,7 @@
     >
       <div class="kt-grid__item">
         <a href="javascript:;" class="kt-login__logo">
-          <img src="~assets/media/logos/logo-light.png" />
+          <!-- <img src="~assets/media/logos/logo-light.png" /> -->
         </a>
       </div>
       <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver">

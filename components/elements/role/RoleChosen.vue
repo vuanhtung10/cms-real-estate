@@ -45,7 +45,6 @@ export default {
   },
   watch: {
     role(val) {
-      console.log(val)
       this.$emit('input', val)
     },
     value(newVal, oldVal) {
