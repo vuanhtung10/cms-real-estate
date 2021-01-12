@@ -96,7 +96,7 @@ export default {
     // Options
     redirect: {
       login: '/auth/login',
-      logout: '/',
+      logout: '/auth/login',
       home: '/',
       callback: false
     },
