@@ -81,5 +81,7 @@ export default {
     'Passwords must include uppercase, lowercase, numeric, special characters, and a minimum of 8 characters',
   'validate.is_username':
     'Tên người dùng chỉ sử dụng chữ cái không dấu hoặc chữ số và không được bắt đầu bằng chữ số',
-  'validation.confirmed': 'The {_field_} field confirmation does not match'
+  'validation.confirmed': 'The {_field_} field confirmation does not match',
+  'validate.is_exist': '{field} is exist',
+  'validate.is_required': '{field} is required',
 }

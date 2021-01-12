@@ -81,5 +81,7 @@ export default {
     'Mật khẩu phải bao gồm chữ hoa, chữ thường,số, kí tự đặc biệt và tối thiểu 8 kí tự',
   'validate.is_username':
     'User names are only alphanumeric or numeric and may not begin with a digit',
-  'validation.confirmed': '{_field_} khác với {_target_}'
+  'validation.confirmed': '{_field_} khác với {_target_}',
+  'validate.is_exist': '{field} đã tồn tại',
+  'validate.is_required': '{field} là bắt buộc',
 }
