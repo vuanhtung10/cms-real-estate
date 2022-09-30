@@ -47,7 +47,7 @@ export default {
     return {
       columns: [
         {
-          data: 'full_name',
+          data: 'fullname',
           title: this.$t('user.display_name')
         },
         {
@@ -156,10 +156,8 @@ export default {
         )
         .then(async (value) => {
           if (value) {
-            await this.$axios.post('/user/delete', {
-              _id: rowData._id
-            })
-
+            await this.$axios.delete('/user/' + rowData._id)
+            console.log(rowData._id)
             notifyDeleteSuccess(this.$t('user.user'))
 
             this.$refs.table.reload()

@@ -83,5 +83,5 @@ export default {
     'Tên người dùng chỉ sử dụng chữ cái không dấu hoặc chữ số và không được bắt đầu bằng chữ số',
   'validation.confirmed': 'The {_field_} field confirmation does not match',
   'validate.is_exist': '{field} is exist',
-  'validate.is_required': '{field} is required',
+  'validate.is_required': '{field} is required'
 }

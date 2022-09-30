@@ -116,7 +116,7 @@ export default {
     async addItem() {
       try {
         this.vForm = new Form(this.form)
-        await this.vForm.post(this.$axios.defaults.baseURL + '/permission/add')
+        await this.vForm.post(this.$axios.defaults.baseURL + '/permission')
 
         notifyAddSuccess(this.$t('permission.permission'))
         this.$refs.modal.hide()
@@ -139,7 +139,9 @@ export default {
     async updateItem() {
       try {
         this.vForm = new Form(this.form)
-        await this.vForm.post(this.$axios.defaults.baseURL + '/permission/edit')
+        await this.vForm.put(
+          this.$axios.defaults.baseURL + '/permission/' + this.form_id
+        )
 
         notifyUpdateSuccess(this.$t('permission.permission'))
         this.$refs.modal.hide()

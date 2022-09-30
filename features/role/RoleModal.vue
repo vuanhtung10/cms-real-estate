@@ -188,7 +188,7 @@ export default {
     async addItem() {
       try {
         this.vForm = new Form(this.form)
-        await this.vForm.post(this.$axios.defaults.baseURL + '/role/add')
+        await this.vForm.post(this.$axios.defaults.baseURL + '/role/')
 
         notifyAddSuccess('Part activity')
         this.$refs.modal.hide()
@@ -212,8 +212,10 @@ export default {
     async updateItem() {
       try {
         this.vForm = new Form(this.form)
-        await this.vForm.post(this.$axios.defaults.baseURL + '/role/edit')
-
+        await this.vForm.put(
+          this.$axios.defaults.baseURL + '/role/' + this.form_id
+        )
+        console.log(this.form)
         notifyAddSuccess('Part activity')
         this.$refs.modal.hide()
         this.onActionSuccess()

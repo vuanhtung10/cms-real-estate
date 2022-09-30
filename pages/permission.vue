@@ -112,12 +112,12 @@ export default {
           }
         )
         .then(async (value) => {
+          console.log(value)
           if (value) {
-            await this.$axios.post('/permission/delete', {
-              _id: rowData._id
-            })
+            await this.$axios.delete('/permission/' + rowData._id)
             notifyDeleteSuccess(this.$t('permission.permission'))
             this.$refs.table.reload()
+            await this.$auth.fetchUser()
           }
         })
         .catch(() => {

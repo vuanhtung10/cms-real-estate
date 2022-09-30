@@ -10,7 +10,7 @@
   >
     <validation-observer ref="observer" class="kt-form">
       <form-control
-        v-model="form.full_name"
+        v-model="form.fullname"
         :label="$t('user.display_name')"
         :data-vv-as="$t('user.display_name')"
         :required="true"

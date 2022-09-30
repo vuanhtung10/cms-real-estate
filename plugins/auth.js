@@ -21,9 +21,15 @@ export default function({ $auth, app, $axios }, inject) {
       return true
     }
     if (Array.isArray(checkPerm)) {
-      return checkPerm.some((r) => permissions.includes(r))
+      if (permissions) {
+        return checkPerm.some((r) => permissions.includes(r))
+      }
+      return true
     } else {
-      return permissions.includes(checkPerm)
+      if (permissions) {
+        return permissions.includes(checkPerm)
+      }
+      return true
     }
   })
 }

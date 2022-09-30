@@ -11,13 +11,13 @@
   >
     <validation-observer ref="observer" class="kt-form">
       <b-text-input-with-validation
-        v-model="form.full_name"
+        v-model="form.fullname"
         :required="true"
         :label="$t('user.display_name')"
         :placeholder="$t('user.display_name')"
         :error="vForm.errors.get('user.display_name')"
         rules="required|max:255"
-        name="full_name"
+        name="fullname"
       />
 
       <b-text-input-with-validation
@@ -150,9 +150,9 @@ export default {
       try {
         const formData = cloneDeep(this.form)
         this.vForm = new Form(formData)
-
+        // await this.vForm.post(this.$axios.defaults.baseURL + '/user/')
         let url = this.$axios.defaults.baseURL
-        url += '/user/add'
+        url += '/user/'
         await this.vForm.post(url)
 
         notifyAddSuccess(this.$t('user.user'))
@@ -170,12 +170,16 @@ export default {
     },
     async updateItem() {
       try {
-        const formData = cloneDeep(this.form)
-        this.vForm = new Form(formData)
-        let url = this.$axios.defaults.baseURL
-        url += '/user/update'
-
-        await this.vForm.post(url)
+        // const formData = cloneDeep(this.form)
+        this.vForm = new Form(this.form)
+        await this.vForm.put(
+          this.$axios.defaults.baseURL + '/user/' + this.form_id
+        )
+        // this.vForm = new Form(formData)
+        // let url = this.$axios.defaults.baseURL
+        // url += '/user/`{}`'
+        // console.log(url)
+        // await this.vForm.put(url)
 
         notifyUpdateSuccess(this.$t('user.user'))
         this.$refs.modal.hide()

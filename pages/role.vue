@@ -26,11 +26,11 @@ import DataTable from '~/components/base/DataTable'
 import { generateTableAction, htmlEscapeEntities } from '~/utils/tableHelper'
 import RoleModal from '~/features/role/RoleModal'
 import { notifyDeleteSuccess, notifyTryAgain } from '~/utils/bootstrap-notify'
-import { ROLE_VIEW } from '~/constants/permissions'
+// import { ROLE_VIEW } from '~/constants/permissions'
 
 export default {
   name: 'Role',
-  permission: ROLE_VIEW,
+  // permission: ROLE_VIEW,
   components: { RoleModal, DataTable, ThePortlet },
   head() {
     return {
@@ -111,9 +111,7 @@ export default {
         )
         .then(async (value) => {
           if (value) {
-            await this.$axios.post('/role/delete', {
-              _id: rowData._id
-            })
+            await this.$axios.delete('/role/' + rowData._id)
             notifyDeleteSuccess(this.$t('role.role'))
             this.$refs.table.reload()
             await this.$auth.fetchUser()
