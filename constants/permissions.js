@@ -1,3 +1,5 @@
 export const PERMISSION_VIEW = 'permission.view'
 export const ROLE_VIEW = 'role.view'
 export const HOUSE_VIEW = 'house.view'
+export const RELATION_VIEW = 'relation.view'
+export const PLOT_VIEW = 'plot.view'

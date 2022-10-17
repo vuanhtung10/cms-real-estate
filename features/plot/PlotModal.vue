@@ -3,7 +3,7 @@
     ref="modal"
     :cancel-title="$t('button.cancel')"
     :ok-title="isEdit ? $t('button.update') : $t('button.add')"
-    :title="isEdit ? $t('house.edit') : $t('house.add')"
+    :title="isEdit ? $t('plot.edit') : $t('plot.add')"
     @ok="handleModalOk"
     @hidden="handleModalHide"
     size="lg"
@@ -13,63 +13,22 @@
       <b-text-input-with-validation
         v-model="form.name"
         :required="true"
-        :label="$t('house.name')"
-        :placeholder="$t('house.name')"
+        :label="$t('plot.name')"
+        :placeholder="$t('plot.name')"
         :error="vForm.errors.get('name')"
         name="name"
       />
 
       <b-text-area-with-validation
         v-model="form.description"
-        :label="$t('house.description')"
-        :placeholder="$t('house.description')"
+        :label="$t('plot.description')"
+        :placeholder="$t('plot.description')"
         :error="vForm.errors.get('description')"
         rules="max:255"
         rows="5"
         name="description"
       />
 
-      <b-text-input-with-validation
-        v-model="form.area"
-        :label="$t('house.area')"
-        :placeholder="$t('house.area')"
-        :error="vForm.errors.get('area')"
-        rules="max:255"
-        name="area"
-      />
-
-      <b-text-input-with-validation
-        v-model="form.price"
-        :label="$t('house.price')"
-        :placeholder="$t('house.price')"
-        :error="vForm.errors.get('price')"
-        name="area"
-      />
-
-      <select2-with-validation
-        v-model="form.direction"
-        :error="vForm.errors.get('direction')"
-        :options="optionDirections"
-        :searchable="false"
-        placeholder="Hướng nhà..."
-        label="Hướng nhà"
-        data-vv-as="Hướng nhà"
-        id-field="key"
-        text-field="text"
-        name="Hướng nhà"
-      />
-
-      <select2-with-validation
-        v-model="form.city"
-        :error="vForm.errors.get('city')"
-        :options="optionCities"
-        :searchable="false"
-        label="Thành phố"
-        data-vv-as="Thành phố"
-        id-field="key"
-        text-field="text"
-        name="Thành Phố"
-      />
       <select2-with-validation
         v-model="form.status"
         :error="vForm.errors.get('status')"
@@ -81,44 +40,6 @@
         id-field="key"
         text-field="text"
         name="Tình trạng"
-      />
-      <b-text-input-with-validation
-        v-model="form.district"
-        :label="$t('house.district')"
-        :placeholder="$t('house.district')"
-        :error="vForm.errors.get('district')"
-        name="direction"
-      />
-      <b-text-input-with-validation
-        v-model="form.ward"
-        :label="$t('house.ward')"
-        :placeholder="$t('house.ward')"
-        :error="vForm.errors.get('ward')"
-        name="direction"
-      />
-      <select2-with-validation
-        v-model="form.user"
-        :error="vForm.errors.get('user')"
-        placeholder="Chọn chủ sở hữu..."
-        label="Chủ sở hữu"
-        data-vv-as="Chủ sở hữu"
-        id-field="_id"
-        text-field="fullname"
-        ajax="/user/suggest"
-        name="chủ sở hữu"
-        rules="required"
-      />
-      <select2-with-validation
-        v-model="form.plot"
-        :error="vForm.errors.get('plot')"
-        placeholder="Chọn Lô Đất..."
-        label="Lô đất"
-        data-vv-as="Lô đất"
-        id-field="_id"
-        text-field="name"
-        ajax="/plot/suggest"
-        name="Lô đất"
-        rules="required"
       />
     </validation-observer>
   </b-modal>
@@ -136,24 +57,15 @@ import {
 } from '~/utils/bootstrap-notify'
 import BTextInputWithValidation from '~/components/base/input/BTextInputWithValidation'
 import BTextAreaWithValidation from '~/components/base/input/BTextAreaWithValidation'
-import { directions, cities, listStatus } from '~/constants/data'
+import { listStatus } from '~/constants/data'
 const defaultForm = {
   name: '',
   description: '',
-  area: '',
-  price: '',
-  direction: '',
-  city: '',
-  district: '',
-  ward: '',
-  user: '',
-  status: true,
-  type: '',
-  plot: ''
+  status: true
 }
 
 export default {
-  name: 'HouseModal',
+  name: 'PlotModal',
   components: {
     Select2WithValidation,
     BTextAreaWithValidation,
@@ -172,8 +84,6 @@ export default {
       form: cloneDeep(defaultForm),
       vForm: new Form(),
       selected: null,
-      optionDirections: directions,
-      optionCities: cities,
       optionStatus: listStatus
     }
   },
@@ -194,19 +104,6 @@ export default {
         this.isEdit = true
         console.log(item)
         this.form = cloneDeep(item)
-        if (item?.direction) {
-          const direction = this.optionDirections.find(
-            (element) => element.key === item.direction
-          )
-          console.log('direction', direction)
-          this.form.direction = direction
-        }
-        if (item?.city) {
-          const city = this.optionCities.find(
-            (element) => element.key === item.city
-          )
-          this.form.city = city
-        }
         if (item?.status) {
           const status = this.optionStatus.find(
             (element) => element.key === item.status
@@ -242,12 +139,10 @@ export default {
       try {
         this.vForm = new Form(this.form)
         // this.vForm.user = this.vForm.user._id
-        this.vForm.direction = this.vForm.direction.key
         this.vForm.status = this.vForm.status.key
-        this.vForm.city = this.vForm.city.key
-        await this.vForm.post(this.$axios.defaults.baseURL + '/house')
+        await this.vForm.post(this.$axios.defaults.baseURL + '/plot')
 
-        notifyAddSuccess(this.$t('house.house'))
+        notifyAddSuccess(this.$t('plot.plot'))
         this.$refs.modal.hide()
         this.onActionSuccess()
       } catch (e) {
@@ -255,7 +150,7 @@ export default {
           if (e.response.status === 422) {
             e.response.data.errors.forEach((element) => {
               const err = this.$t('validate.' + element.msg, {
-                field: this.$t('house.' + element.param)
+                field: this.$t('plot.' + element.param)
               })
               this.vForm.errors.set(element.param, err)
             })
@@ -268,13 +163,11 @@ export default {
     async updateItem() {
       try {
         this.vForm = new Form(this.form)
-        this.vForm.direction = this.vForm.direction.key
         this.vForm.status = this.vForm.status.key
-        this.vForm.city = this.vForm.city.key
         await this.vForm.put(
-          this.$axios.defaults.baseURL + '/house/' + this.form_id
+          this.$axios.defaults.baseURL + '/plot/' + this.form_id
         )
-        notifyUpdateSuccess(this.$t('house.house'))
+        notifyUpdateSuccess(this.$t('plot.plot'))
         this.$refs.modal.hide()
         this.onActionSuccess()
       } catch (e) {
@@ -282,7 +175,7 @@ export default {
           if (e.response.status === 422) {
             e.response.data.errors.forEach((element) => {
               const err = this.$t('validate.' + element.msg, {
-                field: this.$t('house.' + element.param)
+                field: this.$t('plot.' + element.param)
               })
               this.vForm.errors.set(element.param, err)
             })

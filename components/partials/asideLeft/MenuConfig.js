@@ -1,9 +1,35 @@
-import { PERMISSION_VIEW, HOUSE_VIEW, ROLE_VIEW } from '~/constants/permissions'
+import {
+  PERMISSION_VIEW,
+  HOUSE_VIEW,
+  ROLE_VIEW,
+  RELATION_VIEW,
+  PLOT_VIEW
+} from '~/constants/permissions'
 export default [
   {
     title: 'menu.dashboard',
     icon: 'flaticon2-architecture-and-city',
     page: '/',
+    bullet: 'dot'
+  },
+  {
+    title: 'Quản lý Bất Động Sản',
+    icon: 'flaticon2-architecture-and-city',
+    page: '/house',
+    permission: HOUSE_VIEW,
+    bullet: 'dot'
+  },
+  {
+    title: 'Quản lý Relation',
+    icon: 'flaticon-profile-1',
+    page: '/relation',
+    permission: RELATION_VIEW
+  },
+  {
+    title: 'Quản lý Plot',
+    icon: 'flaticon2-architecture-and-city',
+    page: '/plot',
+    permission: PLOT_VIEW,
     bullet: 'dot'
   },
   {
@@ -24,11 +50,6 @@ export default [
         title: 'Quản lý quyền truy cập',
         page: '/permission',
         permission: PERMISSION_VIEW
-      },
-      {
-        title: 'Quản lý bất động sản',
-        page: '/house',
-        permission: HOUSE_VIEW
       }
     ]
   }
