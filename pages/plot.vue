@@ -1,6 +1,5 @@
-/* eslint-disable vue/no-unused-components */
 <template>
-  <the-portlet :title="$t('house.list')">
+  <the-portlet :title="$t('plot.list')">
     <template v-slot:tool>
       <button @click="showModal" type="button" class="btn btn-primary">
         <i class="la la-plus"></i> {{ $t('button.add') }}
@@ -13,11 +12,11 @@
       :order-column-index="1"
       :server-side="true"
       :actions="actions"
-      url="/house/list-for-datatable"
+      url="/plot/list-for-datatable"
       order-type="desc"
     />
 
-    <house-modal ref="modal" :on-action-success="updateItemSuccess" />
+    <plot-modal ref="modal" :on-action-success="updateItemSuccess" />
   </the-portlet>
 </template>
 
@@ -25,82 +24,39 @@
 import ThePortlet from '~/components/base/ThePortlet'
 import DataTable from '~/components/base/DataTable'
 import { generateTableAction, htmlEscapeEntities } from '~/utils/tableHelper'
-import HouseModal from '~/features/house/HouseModal'
+import PlotModal from '~/features/plot/PlotModal'
 import { notifyDeleteSuccess, notifyTryAgain } from '~/utils/bootstrap-notify'
-import { HOUSE_VIEW } from '~/constants/permissions'
-import { cities, directions, listStatus } from '~/constants/data'
+import { PLOT_VIEW } from '~/constants/permissions'
+import { listStatus } from '~/constants/data'
 
 export default {
-  name: 'House',
-  permission: HOUSE_VIEW,
+  name: 'PLOT',
+  permission: PLOT_VIEW,
   // eslint-disable-next-line vue/no-unused-components
-  components: { HouseModal, DataTable, ThePortlet },
+  components: { PlotModal, DataTable, ThePortlet },
   head() {
     return {
-      title: this.$t('menu.house_management')
+      title: this.$t('menu.permission_management')
     }
   },
   meta: {
-    pageTitle: 'menu.house_management'
+    pageTitle: 'menu.permission_management'
+    // permission: PERMISSION_MANAGEMENT
   },
   data() {
     return {
       columns: [
         {
           data: 'name',
-          title: this.$t('house.name')
+          title: this.$t('plot.name')
         },
         {
           data: 'description',
-          title: this.$t('house.description')
-        },
-        {
-          data: 'area',
-          title: this.$t('house.area')
-        },
-        {
-          data: 'price',
-          title: this.$t('house.price')
-        },
-        {
-          data: 'direction',
-          title: this.$t('house.direction'),
-          render(data) {
-            if (data) {
-              const direction = directions.find(
-                (element) => element.key === data
-              )
-              if (direction) return direction.text
-              return ''
-            } else {
-              return ''
-            }
-          }
-        },
-        {
-          data: 'city',
-          title: this.$t('house.city'),
-          render(data) {
-            if (data) {
-              const city = cities.find((element) => element.key === data)
-              if (city) return city.text
-              return ''
-            } else {
-              return ''
-            }
-          }
-        },
-        {
-          data: 'district',
-          title: this.$t('house.district')
-        },
-        {
-          data: 'ward',
-          title: this.$t('house.ward')
+          title: this.$t('plot.description')
         },
         {
           data: 'status',
-          title: this.$t('house.status'),
+          title: this.$t('plot.status'),
           render(data) {
             const status = listStatus.find((element) => element.key === data)
             if (data) {
@@ -114,18 +70,6 @@ export default {
               }
             }
           }
-        },
-        {
-          data: 'type',
-          title: this.$t('house.type')
-        },
-        {
-          data: 'user.fullname',
-          title: this.$t('house.user')
-        },
-        {
-          data: 'plot.name',
-          title: this.$t('house.plot')
         },
         {
           data: null,
@@ -172,7 +116,7 @@ export default {
     deleteItem(table, rowData) {
       this.$bvModal
         .msgBoxConfirm(
-          this.$t('house.delete_confirm', [htmlEscapeEntities(rowData.name)]),
+          this.$t('plot.delete_confirm', [htmlEscapeEntities(rowData.name)]),
           {
             title: this.$t('alert.notice'),
             okVariant: 'danger',
@@ -181,10 +125,12 @@ export default {
           }
         )
         .then(async (value) => {
+          console.log(value)
           if (value) {
-            await this.$axios.delete('/house/' + rowData._id)
-            notifyDeleteSuccess(this.$t('house.house'))
+            await this.$axios.delete('/plot/' + rowData._id)
+            notifyDeleteSuccess(this.$t('plot.plot'))
             this.$refs.table.reload()
+            await this.$auth.fetchUser()
           }
         })
         .catch(() => {

@@ -100,5 +100,17 @@ export default {
   'house.status':'Trạng thái',
   'house.type':'Thể loại',
   'house.plot':'Lô đất',
-  'house.house':'quyền truy cập'
+  'house.house':'quyền truy cập',
+  'plot.edit':'Chỉnh sửa Plot',
+  'plot.list':'Danh sách lô đất',
+  'plot.name':'Lô đất',
+  'plot.description':'Mô tả',
+  'plot.status':'Tình trạng',
+  'relation.edit':'Chỉnh sửa relation',
+  'relation.add':'Thêm mới relation',
+  'relation.list':'Danh sách relation',
+  'relation.plot':'Lô đất',
+  'relation.user':'Chủ sở hữu',
+  'relation.price':'Giá',
+  'relation.profit':'Lợi nhuận'
 }
