@@ -120,6 +120,11 @@
         name="Lô đất"
         rules="required"
       />
+      <b-muti-image-thumb-upload-with-validation
+        :required="true"
+        v-model="form.images"
+        label="Ảnh chi tiết"
+      />
     </validation-observer>
   </b-modal>
 </template>
@@ -128,14 +133,16 @@
 import Form from 'vform'
 import cloneDeep from 'lodash/cloneDeep'
 import { ValidationObserver } from 'vee-validate'
-import Select2WithValidation from '~/components/base/input/Select2WithValidation'
 import {
   notifyAddSuccess,
   notifyTryAgain,
   notifyUpdateSuccess
 } from '~/utils/bootstrap-notify'
+// component
+import BMutiImageThumbUploadWithValidation from '~/components/base/input/BMutiImageThumbUploadWithValidation'
 import BTextInputWithValidation from '~/components/base/input/BTextInputWithValidation'
 import BTextAreaWithValidation from '~/components/base/input/BTextAreaWithValidation'
+import Select2WithValidation from '~/components/base/input/Select2WithValidation'
 import { directions, cities, listStatus } from '~/constants/data'
 const defaultForm = {
   name: '',
@@ -158,7 +165,8 @@ export default {
     Select2WithValidation,
     BTextAreaWithValidation,
     BTextInputWithValidation,
-    ValidationObserver
+    ValidationObserver,
+    BMutiImageThumbUploadWithValidation
   },
   props: {
     onActionSuccess: {
