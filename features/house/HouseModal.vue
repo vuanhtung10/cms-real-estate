@@ -120,6 +120,11 @@
         name="Lô đất"
         rules="required"
       />
+      <b-single-image-upload-with-validation
+        v-model="form.thumbnail"
+        label="Thumbnail"
+        placeholder="Thumbnail"
+      />
       <b-muti-image-thumb-upload-with-validation
         :required="true"
         v-model="form.images"
@@ -143,6 +148,7 @@ import BMutiImageThumbUploadWithValidation from '~/components/base/input/BMutiIm
 import BTextInputWithValidation from '~/components/base/input/BTextInputWithValidation'
 import BTextAreaWithValidation from '~/components/base/input/BTextAreaWithValidation'
 import Select2WithValidation from '~/components/base/input/Select2WithValidation'
+import BSingleImageUploadWithValidation from '~/components/base/input/BSingleImageUploadWithValidation'
 import { directions, cities, listStatus } from '~/constants/data'
 const defaultForm = {
   name: '',
@@ -166,7 +172,8 @@ export default {
     BTextAreaWithValidation,
     BTextInputWithValidation,
     ValidationObserver,
-    BMutiImageThumbUploadWithValidation
+    BMutiImageThumbUploadWithValidation,
+    BSingleImageUploadWithValidation
   },
   props: {
     onActionSuccess: {
