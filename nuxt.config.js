@@ -42,7 +42,8 @@ export default {
     { src: '~/plugins/vue-bootstrap-datetimepicker', mode: 'client' },
     { src: '~/plugins/vue-events' },
     { src: '~/plugins/element-ui' },
-    { src: '~/plugins/vue-draggable-resizable.client' }
+    { src: '~/plugins/vue-draggable-resizable.client' },
+    { src: '~/plugins/quill-editor', ssr: false }
   ],
   /*
    ** Nuxt.js dev-modules

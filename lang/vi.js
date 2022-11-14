@@ -35,6 +35,7 @@ export default {
   'menu.role_management': 'Quản lý nhóm người dùng',
   'menu.translation_content_management': 'Quản lý công việc',
   'menu.user_management': 'Quản lý người dùng',
+  'menu.article_management': 'Quản lý tin tức',
   'message.error_system': 'Hệ thống lỗi, xin vui lòng thực hiện lại sau',
   'permission.add': 'Thêm mới',
   'permission.delete_confirm': 'Bạn chắc chắn muốn xóa quyền "{0}"?',
@@ -112,5 +113,14 @@ export default {
   'relation.plot': 'Lô đất',
   'relation.user': 'Chủ sở hữu',
   'relation.price': 'Giá',
-  'relation.profit': 'Lợi nhuận'
+  'relation.profit': 'Lợi nhuận',
+  // article
+  'article.add': 'Thêm tin tức mới',
+  'article.delete_confirm': 'Bạn chắc chắn muốn xóa tin tức "{0}"?',
+  'article.article': 'Tin tức',
+  'article.edit': 'Cập nhật tin tức',
+  'article.list': 'Danh sách bài tin tức',
+  'article.name': 'Tên bài viết',
+  'article.description': 'Mô tả',
+  'article.view': 'Lượt xem',
 }

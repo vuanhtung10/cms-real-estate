@@ -8,8 +8,8 @@
       :on-success="handleUploadSuccess"
       :before-upload="beforeUpload"
       :headers="this.$axios.defaults.headers.common"
-      :action="this.$axios.defaults.baseURL + '/media/upload-single-image'"
-      :accept="accept"
+      :action="this.$axios.defaults.baseURL + ajax"
+      :data="{ targetFolder: 'organization/' }"
       list-type="picture-card"
       name="image"
     >
@@ -29,17 +29,15 @@ export default {
       type: String,
       default: null
     },
-    accept: {
+    ajax: {
       type: String,
-      default: 'image/jpeg,image/png,image/jpg'
+      default: '/media/upload-single-image'
     }
   },
   data() {
     return {
       fileList: this.value ? [{ name: this.value, url: this.value }] : [],
-      innerValue: null,
-      width: 0,
-      height: 0
+      innerValue: null
     }
   },
   watch: {
@@ -82,27 +80,14 @@ export default {
       this.innerValue = null
     },
     beforeUpload(file) {
-      const acceptArr = this.accept.split(',')
-      const isIMG = acceptArr.includes(file.type)
+      const isIMG = ['image/jpeg', 'image/png', 'image/jpg'].includes(file.type)
       const isLt5M = file.size / 1024 / 1024 < 5
 
       if (!isIMG) {
-        notify('Thông báo', `Ảnh phải có định dạng ${this.accept}!`)
+        notify('Thông báo', 'Ảnh phải có định dạng jpeg,png,jpg!')
       }
       if (!isLt5M) {
         notify('Thông báo', 'Ảnh phải có kích thước nhỏ hơn 5MB!')
-      }
-
-      const img = new Image()
-
-      img.src = window.URL.createObjectURL(file)
-
-      img.onload = () => {
-        const width = img.naturalWidth
-        const height = img.naturalHeight
-
-        this.width = width
-        this.height = height
       }
 
       if (isIMG && isLt5M) {
@@ -115,13 +100,7 @@ export default {
       return false
     },
     handleUploadSuccess(res, file) {
-      this.innerValue = res.filePath
-    },
-    getDimension() {
-      return {
-        width: this.width,
-        height: this.height
-      }
+      this.innerValue = res.imagePath
     }
   }
 }

@@ -3,7 +3,8 @@ import {
   HOUSE_VIEW,
   ROLE_VIEW,
   RELATION_VIEW,
-  PLOT_VIEW
+  PLOT_VIEW,
+  ARTICLE_VIEW
 } from '~/constants/permissions'
 export default [
   {
@@ -30,6 +31,13 @@ export default [
     icon: 'flaticon2-architecture-and-city',
     page: '/plot',
     permission: PLOT_VIEW,
+    bullet: 'dot'
+  },
+  {
+    title: 'Quản lý bài viết',
+    icon: 'flaticon2-paper',
+    page: '/article',
+    permission: ARTICLE_VIEW,
     bullet: 'dot'
   },
   {
