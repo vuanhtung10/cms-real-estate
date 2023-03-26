@@ -73,21 +73,25 @@ export default {
   watch: {
     innerValue(newVal) {
       if (!this.lazy) {
+        console.log('innervalue')
         this.$emit('input', newVal)
       }
     },
     value(newVal) {
+      console.log('value')
       this.innerValue = newVal
     }
   },
   created() {
     if (this.value) {
+      console.log('create')
       this.innerValue = this.value
     }
   },
   methods: {
     emitValue() {
       if (this.lazy) {
+        console.log('emitValue')
         this.$emit('input', this.innerValue)
       }
     },

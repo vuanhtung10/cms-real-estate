@@ -91,7 +91,7 @@ export default {
   'house.list': 'Danh sách bất động sản',
   'house.name': 'Nhà',
   'house.description': 'Mô tả',
-  'house.area': 'Khu vực',
+  'house.area': 'diện tích',
   'house.price': 'Giá',
   'house.direction': 'Hướng nhà',
   'house.city': 'Thành Phố',
@@ -122,5 +122,5 @@ export default {
   'article.list': 'Danh sách bài tin tức',
   'article.name': 'Tên bài viết',
   'article.description': 'Mô tả',
-  'article.view': 'Lượt xem',
+  'article.view': 'Lượt xem'
 }

@@ -17,6 +17,7 @@
         :placeholder="$t('house.name')"
         :error="vForm.errors.get('name')"
         name="name"
+        rules="required"
       />
 
       <b-text-area-with-validation
@@ -87,14 +88,14 @@
         :label="$t('house.district')"
         :placeholder="$t('house.district')"
         :error="vForm.errors.get('district')"
-        name="direction"
+        name="quận"
       />
       <b-text-input-with-validation
         v-model="form.ward"
         :label="$t('house.ward')"
         :placeholder="$t('house.ward')"
         :error="vForm.errors.get('ward')"
-        name="direction"
+        name="phường"
       />
       <select2-with-validation
         v-model="form.user"
@@ -256,6 +257,7 @@ export default {
     async addItem() {
       try {
         this.vForm = new Form(this.form)
+        console.log('vForm1', this.vForm)
         // this.vForm.user = this.vForm.user._id
         this.vForm.direction = this.vForm.direction.key
         this.vForm.status = this.vForm.status.key
@@ -287,7 +289,7 @@ export default {
         this.vForm.status = this.vForm.status.key
         this.vForm.city = this.vForm.city.key
         await this.vForm.put(
-          this.$axios.defaults.baseURL + '/house/' + this.form_id
+          this.$axios.defaults.baseURL + '/house/' + this.form._id
         )
         notifyUpdateSuccess(this.$t('house.house'))
         this.$refs.modal.hide()

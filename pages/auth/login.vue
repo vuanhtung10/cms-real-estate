@@ -127,7 +127,7 @@ export default {
   },
   data() {
     return {
-      username: 'leanhtu5991@gmail.com',
+      username: 'admin1@gmail.com',
       password: '12345678',
       isLoading: false,
       error: null

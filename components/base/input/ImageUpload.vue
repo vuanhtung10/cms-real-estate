@@ -77,6 +77,8 @@ export default {
   },
   methods: {
     handleRemove(file, fileList) {
+      console.log('file', file)
+      console.log('fileList', fileList)
       this.innerValue = null
     },
     beforeUpload(file) {
@@ -100,6 +102,8 @@ export default {
       return false
     },
     handleUploadSuccess(res, file) {
+      console.log('res', res)
+      console.log('file', file)
       this.innerValue = res.imagePath
     }
   }

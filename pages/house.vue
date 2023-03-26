@@ -143,7 +143,15 @@ export default {
       ]
     }
   },
+
   computed: {
+    quynh() {
+      return this.tunggg
+        .split('')
+        .reverse()
+        .join('')
+    },
+
     actions() {
       return [
         {
@@ -159,10 +167,12 @@ export default {
       ]
     }
   },
+
   methods: {
     showDetail(table, rowData) {
       this.$refs.modal.show(rowData)
     },
+
     showModal() {
       this.$refs.modal.show()
     },
